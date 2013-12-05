@@ -1,0 +1,75 @@
+% start S
+ 
+S -> NP[f=?f] VP[f=?f]
+ 
+NP[f=?f] -> Det[f=?f] N1[f=?f] | PropN[f=?f] | Pro[f=?f]
+N1[f=?f] -> Adj N[f=?f] | N[f=?f]
+NP[f=?f] -> NP CnjP[f=?f] | NP[f=?f] PP
+VP[f=?f] -> V[f=?f, -t, s=0]
+VP[f=?f] -> V[f=?f, +t, s=0] NP
+VP[f=?f] -> V[f=?f, +t, s=0] NP PP[f=?p]
+VP[f=?f] -> V[f=?f, +t, s=?p] NP PP[f=?p]
+VP[f=?f] -> V[f=?f, -t, s=?p] PP[f=?p]
+VP[f=?f] -> V[f=?f, -t, s=?c] SC[f=?c]
+VP[f=?f] -> V[f=ed, -t] PP[f=?p] | V[f=ed, -t]
+VP[f=?f] -> V[f=?f, +t, s=?g] VP[f=?g, s=?g]
+VP -> V InfP | V NP InfP
+VP -> V NP SC
+VP[f=?f] -> V[f=?f] Adj
+VP[+2t] -> V[f=?p] NP PP[f=?p]
+VP[+2t] -> V NP NP
+InfP -> Inf V[f=inf]
+SC[f=?c] -> Comp[f=?c] S
+
+VP -> Vt NP
+VP -> Vi PP
+CnjP[f=?f] -> Cnj[f=?f] NP
+PP[f=?f] -> P[f=?f]  NP
+
+PropN[f=sg] -> 'Sylvester' | 'Fido' | 'Alice'
+P[f=p] -> 'at'
+P[f=to, s=to] -> 'to'
+Pro[f=pl] -> 'you'
+P[f=loc] -> 'on' | 'in'
+Inf[f=inf] -> 'to'
+Comp[f=that, s=that] -> 'that' | 'whether' | 'if' | 'this'
+Comp[f=Q] -> 'if'
+Det[f=sg] -> 'a' | 'an'
+Det[f=pl] -> 'these'   
+Det -> 'the'
+Cnj[f=pl] -> 'and'
+Adj -> 'blue' | 'white' | 'happy'
+N[f=sg] -> 'dog'| 'cat' | 'park'| 'present' | 'shelf' | 'book' | 'rabbit' | 'hurry' | 'aardvark'
+N[f=pl] -> 'cats' |'dogs'  
+V[f=pl] -> 'bark'
+V[s=inf] -> 'bark'
+V[f=sg] -> 'barks'
+V[f=sg, -t, s=Q] -> 'wonders' 
+V[f=ed, +t, s=to] -> 'wanted' | 'persuaded'
+V[f=ed, +t, s=comp] -> 'persuaded'
+V[f=ed, -t, s=0] -> 'barked'
+   
+V[f=sg, s=loc] -> 'is' 
+V[f=sg, s=ing] -> 'is'
+V[f=pl, s=ing] -> 'are'
+V[f=sg] -> 'is'
+V[f=pl] -> 'are' 
+V[s=ed] -> 'have'
+V[f=sg, s=en] -> 'has'
+V[+2t, f=to, s=to] -> 'gave'
+V[s=inf] -> 'will'
+V[f=sg, s=was] -> 'was'
+V[f=pl, s=were] -> 'were'
+V[f=en, s=ing] -> 'been'
+V[f=pl, +t, s=0] -> 'chase'
+V[f=inf, +t] -> 'chase'
+V[f=sg, +t, s=0] -> 'chases' | 'knows'
+V[f=sg, -t, s=that] -> 'knows'
+V[f=ing, +t, s=0] -> 'chasing'
+V[f=sg, +t, s=0] -> 'chased'
+V[f=pl, +t, s=0] -> 'chased' 
+V[f=ed, +t] -> 'chased'
+V[f=was, -t] -> 'chased'
+V[f=were, -t] -> 'chased'
+V[f=sg, +t, s=loc] -> 'puts'
+V[f=sg, -t, s=that] -> 'thinks'

@@ -1,0 +1,19 @@
+0 Spot barks
+1 Fido chases Max
+2 Spot is blue
+3 Max is a red cat
+4 Bonnie is not red
+5 Spot is not a dog or Alley is orange
+6 Fido is a dog and Fido is red
+7 Bonnie is a dog if Alley is a cat
+8 every dog barks
+9 every dog likes Spot
+10 every blue dog likes Max
+11 a red cat chases Spot
+12 every dog that is red likes Spot
+13 every cat is a animal
+14 there is a orange cat
+15 if every cat is a animal then every dog is a animal
+16 every dog is not a cat
+17 not every cat is red
+18 no dog is orange

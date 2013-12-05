@@ -1,0 +1,52 @@
+% start S
+
+###  Grammar
+
+S[v=<-?v>] -> 'not' S[v=?v]
+S[v=<?v | ?y>] -> S[v=?v] 'or' S[v=?y]
+S[v=<?v & ?y>] -> S[v=?v] 'and' S[v=?y]
+S[v=<?v -> ?y>] -> 'if' S[v=?v] 'then' S[v=?y]
+S[v=<?v -> ?y>] -> S[v=?v] 'if' S[v=?y]
+S[v=<?v(?n)>] -> NP[v=?n] VP[v=?v]
+S[v=<?q(?v)>] -> QP[v=?q] VP[v=?v]
+S[v=<exists x. ?v(x)>] -> 'there' 'is' Pred[v=?v]
+NP[v=?n] -> Name[v=?n]
+QP[v=<?d(?n)>] -> Q[v=?d] N2[v=?n]
+N2[v=<x.(?n(x) & ?v(x))>] -> N1[v=?n] RC[v=?v]
+N2[v=?n] -> N1[v=?n]
+N1[v=<x.(?a(x) & ?n(x))>] -> Adj[v=?a] N1[v=?n]
+N1[v=?n] -> N[v=?n]
+RC[v=?v] -> 'that' VP[v=?v]
+
+VP[v=?v] -> Vi[v=?v]
+VP[v=<x.?v(x,?n)>] -> Vt[v=?v] NP[v=?n]
+VP[v=?a] -> 'is' Pred[v=?a]
+VP[v=<-?a>] -> 'is' 'not' Pred[v=?a]
+Pred[v=?a] -> Adj[v=?a]
+Pred[v=?v] -> 'a' N1[v=?v]
+
+
+###  Lexicon
+
+Q[v=<R.P.all x.(R(x)->P(x))>] -> 'every'
+Q[v=<R.P.exists x.(R(x) & P(x))>] -> 'a'
+Q[v=<R.P.-exists x.(R(x) & P(x))>] -> 'no'
+
+Q[v=<MOST>] -> 'most'
+Q[v=<FEW>] -> 'few'
+Adj[v=<RED>] -> 'red'
+Adj[v=<BLUE>] -> 'blue'
+Adj[v=<ORANGE>] -> 'orange'
+N[v=<CAT>] -> 'cat'
+N[v=<CAT>] -> 'cats'
+N[v=<DOG>] -> 'dog'
+N[v=<ANIMAL>] -> 'animal'
+Name[v=<FIDO>] -> 'Fido'
+Name[v=<SPOT>] -> 'Spot'
+Name[v=<MAX>] -> 'Max'
+Name[v=<ALLEY>] -> 'Alley'
+Name[v=<BONNIE>] -> 'Bonnie'
+Vi[v=<BARKER>] -> 'barks'
+Vi[v=<BARKER>] -> 'bark'
+Vt[v=<LIKES>] -> 'likes'
+Vt[v=<CHASES>] -> 'chases'

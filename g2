@@ -1,0 +1,21 @@
+% start S
+
+S -> NP VP | VP CP | PassAux VP
+VP -> V NP | N NP PP | ProgAux V | PassAux | NP V | V Name
+PP -> P NP
+CP -> C VP | C V
+NP -> Det N | Det N PP | Name | NP0 | Det NP0 | Det N CP
+NP0 -> Adj NP0 | NC
+NC -> NC N | N
+ProgAuxP -> ProgAux
+PassAuxP -> PassAux
+
+V -> "saw" | "ate" | "walked" | "sleeping" | "think" | "chased" | "barked" | "bark"
+ProgAux -> "is"
+PassAux -> "did"
+Adj -> "big" | "red"
+C -> "that"
+Name -> "John" | "Mary" | "Bob" | "Fido"
+Det -> "a" | "an" | "the" | "my"
+N -> "man" | "dog" | "cat" | "telescope" | "park" | "I"
+P -> "in" | "on" | "by" | "with"
